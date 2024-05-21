@@ -2,11 +2,14 @@
 @model Vidhyalaya.Pages_Grades.IndexModel
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-success"><i class="bi bi-plus"></i>Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade[0].Label)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Grade[0].ClassTeacher)
             </th>
@@ -26,6 +29,9 @@
 @foreach (var item in Model.Grade) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Label)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ClassTeacher)
             </td>
             <td>
@@ -38,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.SessionYear)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Label">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Label">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Label">Delete</a>
+                <a asp-page="./Details" asp-route-id="@item.Label"><i class="bi bi-list"></i></a> |
+                <a asp-page="./Edit" asp-route-id="@item.Label"><i class="bi bi-pen"></i></a> |
+                <a asp-page="./Delete" asp-route-id="@item.Label"><i class="bi bi-trash"></i></a>
             </td>
         </tr>
 }

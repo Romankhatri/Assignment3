@@ -36,7 +36,7 @@ namespace Vidhyalaya.Pages_Grades
             _context.Grades.Add(Grade);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Grades");
         }
     }
 }
